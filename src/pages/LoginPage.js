@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-const dotenv = require("dotenv");
-dotenv.config();
+
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,12 +9,15 @@ export default function LoginPage() {
   const { setUserInfo } = useContext(UserContext);
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch(`${process.env.SPARKLE_APP_URI}/login`, {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://sparkle-spot-app-api.onrender.com/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }
+    );
     if (response.ok) {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);

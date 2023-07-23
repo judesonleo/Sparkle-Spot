@@ -9,11 +9,13 @@ export default function PostPage() {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`${process.env.SPARKLE_APP_URI}/post/${id}`).then((response) => {
-      response.json().then((postInfo) => {
-        setPostInfo(postInfo);
-      });
-    });
+    fetch(`https://sparkle-spot-app-api.onrender.com/post/${id}`).then(
+      (response) => {
+        response.json().then((postInfo) => {
+          setPostInfo(postInfo);
+        });
+      }
+    );
   }, []);
 
   if (!postInfo) return "";
@@ -45,7 +47,10 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`http://localhost:4000/${postInfo.cover}`} alt="" />
+        <img
+          src={`https://sparkle-spot-app-api.onrender.com/${postInfo.cover}`}
+          alt=""
+        />
       </div>
       <div
         className="content"

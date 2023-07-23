@@ -5,7 +5,7 @@ import { UserContext } from "./UserContext";
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch(`${process.env.SPARKLE_APP_URI}/profile`, {
+    fetch("https://sparkle-spot-app-api.onrender.com/profile", {
       credentials: "include",
     }).then((response) => {
       response.json().then((userInfo) => {
@@ -15,7 +15,7 @@ export default function Header() {
   }, []);
 
   function logout() {
-    fetch(`${process.env.SPARKLE_APP_URI}/logout`, {
+    fetch("https://sparkle-spot-app-api.onrender.com/logout", {
       credentials: "include",
       method: "POST",
     });

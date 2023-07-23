@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function IndexPage() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.SPARKLE_APP_URI}/post`).then((response) => {
+    fetch("https://sparkle-spot-app-api.onrender.com/post").then((response) => {
       response.json().then((posts) => {
         setPosts(posts);
       });
