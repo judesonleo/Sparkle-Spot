@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+        Sparkle Spot
       </Link>
       <nav>
         {username && (
