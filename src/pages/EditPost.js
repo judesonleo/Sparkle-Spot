@@ -11,7 +11,7 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://sparkle-spot-app-api.onrender.com/post/" + id).then(
+    fetch(`https://sparkle-spot-app-api.onrender.com/post/${id}`).then(
       (response) => {
         response.json().then((postInfo) => {
           setTitle(postInfo.title);

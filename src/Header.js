@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  //useState
+} from "react";
 import { UserContext } from "./UserContext";
 import Logo from "./sparkle-spot-high-resolution-logo-color-on-transparent-background.png";
 export default function Header() {
